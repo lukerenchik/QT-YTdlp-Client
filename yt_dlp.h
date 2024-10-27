@@ -22,8 +22,11 @@ private slots:
     void on_saveButton_clicked();
     void on_dlButton_clicked();
 
-    void onDownloadProgress(const QString &message);
+
     void onDownloadFinished(bool success, const QString &message);
+    void onProgressUpdate(double percentage, const QString &totalSize, const QString &speed, const QString &eta);
+    void onInfoMessage(const QString &message);
+    void onErrorMessage(const QString &message);
 
 private:
     Ui::yt_dlp *ui;

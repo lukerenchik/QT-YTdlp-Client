@@ -1,5 +1,7 @@
 #include "Downloader.h"
 #include <QDir>
+#include <QRegularExpression>
+#include <QDebug>
 
 Downloader::Downloader(QObject *parent)
     : QObject(parent)
@@ -53,16 +55,64 @@ void Downloader::download(const QString &url)
 
 void Downloader::onProcessOutput()
 {
-    QByteArray output = process->readAllStandardOutput();
-    QString text = QString::fromLocal8Bit(output);
-    emit downloadProgress(text);
+    QByteArray outputData = process->readAllStandardOutput();
+    QString output = QString::fromLocal8Bit(outputData);
+
+    QStringList lines = output.split('\n', Qt::SkipEmptyParts);
+
+    for (const QString &line : lines) {
+        parseOutputLine(line);
+    }
 }
+
 
 void Downloader::onProcessErrorOutput()
 {
-    QByteArray errorOutput = process->readAllStandardError();
-    QString text = QString::fromLocal8Bit(errorOutput);
-    emit downloadProgress(text); // You might want to separate errors
+    QByteArray errorData = process->readAllStandardError();
+    QString errorOutput = QString::fromLocal8Bit(errorData);
+    QStringList lines = errorOutput.split('\n', Qt::SkipEmptyParts);
+
+    for (const QString &line : lines) {
+        parseErrorLine(line);
+    }
+}
+
+void Downloader::parseOutputLine(const QString &line)
+{
+    QRegularExpression progressRegex(R"(\[download\]\s+(\d+\.\d+)% of\s+([\d\.]+\w+)\s+at\s+([\d\.]+\w+/s)\s+ETA\s+([\d:]+))");
+    QRegularExpression finishedRegex(R"(\[download\]\s+100%\s+of\s+([\d\.]+\w+)\s+in\s+([\d:]+)\s+at\s+([\d\.]+\w+/s))");
+    QRegularExpressionMatch match = progressRegex.match(line);
+
+    if (match.hasMatch()) {
+
+        QString percentageStr = match.captured(1);
+        QString totalSize = match.captured(2);
+        QString speed = match.captured(3);
+        QString eta = match.captured(4);
+
+        double percentage = percentageStr.toDouble();
+
+        emit progressUpdate(percentage, totalSize, speed, eta);
+    } else if ((match = finishedRegex.match(line)).hasMatch()) {
+        QString totalSize = match.captured(1);
+        QString timeTaken = match.captured(2);
+        QString averageSpeed = match.captured(3);
+
+        emit progressUpdate(100.0, totalSize, averageSpeed, "0:00");
+
+        emit infoMessage(line);
+
+
+    }
+    else {
+        emit infoMessage(line);
+    }
+
+}
+
+void Downloader::parseErrorLine(const QString &line)
+{
+    emit errorMessage(line);
 }
 
 void Downloader::onProcessFinished(int exitCode, QProcess::ExitStatus exitStatus)

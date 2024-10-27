@@ -67,26 +67,29 @@
    <widget class="QWidget" name="gridLayoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>390</y>
+      <x>20</x>
+      <y>380</y>
       <width>231</width>
-      <height>131</height>
+      <height>132</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_7">
-     <item row="0" column="0">
+     <item row="1" column="0">
       <widget class="QPushButton" name="saveButton">
        <property name="text">
         <string>Select Save Folder</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
+     <item row="2" column="0">
       <widget class="QPushButton" name="dlButton">
        <property name="text">
         <string>Download</string>
        </property>
       </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QTextEdit" name="outputTextEdit"/>
      </item>
     </layout>
    </widget>
@@ -94,7 +97,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>530</y>
+      <y>520</y>
       <width>531</width>
       <height>16</height>
      </rect>
@@ -103,14 +106,56 @@
      <string/>
     </property>
    </widget>
-   <widget class="QTextEdit" name="outputTextEdit">
+   <widget class="QProgressBar" name="progressBar">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>110</y>
-      <width>104</width>
-      <height>70</height>
+      <x>280</x>
+      <y>410</y>
+      <width>118</width>
+      <height>23</height>
      </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelTotalSize">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>450</y>
+      <width>241</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelSpeed">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>480</y>
+      <width>291</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelETA">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>510</y>
+      <width>151</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>

@@ -19,8 +19,10 @@ yt_dlp::yt_dlp(QWidget *parent)
     downloader->setOutputDir(outputDir);
 
     // Connect downloader signals to slots
-    connect(downloader, &Downloader::downloadProgress, this, &yt_dlp::onDownloadProgress);
     connect(downloader, &Downloader::downloadFinished, this, &yt_dlp::onDownloadFinished);
+    connect(downloader, &Downloader::progressUpdate, this, &yt_dlp::onProgressUpdate);
+    connect(downloader, &Downloader::infoMessage, this, &yt_dlp::onInfoMessage);
+    connect(downloader, &Downloader::errorMessage, this, &yt_dlp::onErrorMessage);
 
     // Initialize GifManager
     gifManager = new GifManager(ui->gifLabel, this);
@@ -60,13 +62,39 @@ void yt_dlp::on_dlButton_clicked()
     }
 
     ui->dlButton->setEnabled(false);
+
+    // Reset progress bar and labels
+    ui->progressBar->setValue(0);
+    ui->labelTotalSize->clear();
+    ui->labelSpeed->clear();
+    ui->labelETA->clear();
+
     downloader->download(url);
 }
 
-void yt_dlp::onDownloadProgress(const QString &message)
+void yt_dlp::onProgressUpdate(double percentage, const QString &totalSize, const QString &speed, const QString &eta)
 {
-    // Display progress messages
+    ui->progressBar->setValue(static_cast<int>(percentage));
+
+    if (!totalSize.isEmpty())
+        ui->labelTotalSize->setText("Total Size: " + totalSize);
+
+    if (!speed.isEmpty())
+        ui->labelSpeed->setText("Speed: " + speed);
+
+    if (!eta.isEmpty())
+        ui->labelETA->setText("ETA: " + eta);
+}
+
+
+void yt_dlp::onInfoMessage(const QString &message)
+{
     ui->outputTextEdit->append(message);
+}
+
+void yt_dlp::onErrorMessage(const QString &message)
+{
+    ui->outputTextEdit->append("<span style='color:red;'>" + message + "</span>");
 }
 
 void yt_dlp::onDownloadFinished(bool success, const QString &message)
@@ -75,7 +103,11 @@ void yt_dlp::onDownloadFinished(bool success, const QString &message)
 
     if (success) {
         QMessageBox::information(this, "Success", message);
+
+        // Display a new random GIF upon successful download
+        gifManager->displayRandomGif();
     } else {
         QMessageBox::critical(this, "Error", message);
     }
 }
+

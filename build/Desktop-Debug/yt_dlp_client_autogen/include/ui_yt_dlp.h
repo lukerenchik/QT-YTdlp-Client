@@ -18,6 +18,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
@@ -43,8 +44,12 @@ public:
     QGridLayout *gridLayout_7;
     QPushButton *saveButton;
     QPushButton *dlButton;
-    QLabel *outputDirLabel;
     QTextEdit *outputTextEdit;
+    QLabel *outputDirLabel;
+    QProgressBar *progressBar;
+    QLabel *labelTotalSize;
+    QLabel *labelSpeed;
+    QLabel *labelETA;
     QMenuBar *menubar;
     QMenu *menuSettings;
     QStatusBar *statusbar;
@@ -104,26 +109,41 @@ public:
 
         gridLayoutWidget_4 = new QWidget(centralwidget);
         gridLayoutWidget_4->setObjectName(QString::fromUtf8("gridLayoutWidget_4"));
-        gridLayoutWidget_4->setGeometry(QRect(270, 390, 231, 131));
+        gridLayoutWidget_4->setGeometry(QRect(20, 380, 231, 132));
         gridLayout_7 = new QGridLayout(gridLayoutWidget_4);
         gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
         gridLayout_7->setContentsMargins(0, 0, 0, 0);
         saveButton = new QPushButton(gridLayoutWidget_4);
         saveButton->setObjectName(QString::fromUtf8("saveButton"));
 
-        gridLayout_7->addWidget(saveButton, 0, 0, 1, 1);
+        gridLayout_7->addWidget(saveButton, 1, 0, 1, 1);
 
         dlButton = new QPushButton(gridLayoutWidget_4);
         dlButton->setObjectName(QString::fromUtf8("dlButton"));
 
-        gridLayout_7->addWidget(dlButton, 1, 0, 1, 1);
+        gridLayout_7->addWidget(dlButton, 2, 0, 1, 1);
+
+        outputTextEdit = new QTextEdit(gridLayoutWidget_4);
+        outputTextEdit->setObjectName(QString::fromUtf8("outputTextEdit"));
+
+        gridLayout_7->addWidget(outputTextEdit, 0, 0, 1, 1);
 
         outputDirLabel = new QLabel(centralwidget);
         outputDirLabel->setObjectName(QString::fromUtf8("outputDirLabel"));
-        outputDirLabel->setGeometry(QRect(10, 530, 531, 16));
-        outputTextEdit = new QTextEdit(centralwidget);
-        outputTextEdit->setObjectName(QString::fromUtf8("outputTextEdit"));
-        outputTextEdit->setGeometry(QRect(670, 110, 104, 70));
+        outputDirLabel->setGeometry(QRect(10, 520, 531, 16));
+        progressBar = new QProgressBar(centralwidget);
+        progressBar->setObjectName(QString::fromUtf8("progressBar"));
+        progressBar->setGeometry(QRect(280, 410, 118, 23));
+        progressBar->setValue(24);
+        labelTotalSize = new QLabel(centralwidget);
+        labelTotalSize->setObjectName(QString::fromUtf8("labelTotalSize"));
+        labelTotalSize->setGeometry(QRect(280, 450, 241, 16));
+        labelSpeed = new QLabel(centralwidget);
+        labelSpeed->setObjectName(QString::fromUtf8("labelSpeed"));
+        labelSpeed->setGeometry(QRect(280, 480, 291, 16));
+        labelETA = new QLabel(centralwidget);
+        labelETA->setObjectName(QString::fromUtf8("labelETA"));
+        labelETA->setGeometry(QRect(280, 510, 151, 16));
         yt_dlp->setCentralWidget(centralwidget);
         menubar = new QMenuBar(yt_dlp);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -156,6 +176,9 @@ public:
         saveButton->setText(QCoreApplication::translate("yt_dlp", "Select Save Folder", nullptr));
         dlButton->setText(QCoreApplication::translate("yt_dlp", "Download", nullptr));
         outputDirLabel->setText(QString());
+        labelTotalSize->setText(QCoreApplication::translate("yt_dlp", "TextLabel", nullptr));
+        labelSpeed->setText(QCoreApplication::translate("yt_dlp", "TextLabel", nullptr));
+        labelETA->setText(QCoreApplication::translate("yt_dlp", "TextLabel", nullptr));
         menuSettings->setTitle(QCoreApplication::translate("yt_dlp", "Settings", nullptr));
     } // retranslateUi
 

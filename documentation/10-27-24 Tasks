@@ -1,0 +1,14 @@
+Updates:
+
+
+Set path to ytdlp executable in settings
+
+add label to save folder at bottom.
+
+allow formats to be adjustable
+
+repack everything efficently.
+
+Seperate terminal parser to its own class?
+
+remove terminal output box

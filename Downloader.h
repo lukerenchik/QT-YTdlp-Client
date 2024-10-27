@@ -16,7 +16,9 @@ public:
     void download(const QString &url);
 
 signals:
-    void downloadProgress(const QString &message);
+    void progressUpdate(double percentage, const QString &totalSize, const QString &speed, const QString &eta);
+    void infoMessage(const QString &message);
+    void errorMessage(const QString &message);
     void downloadFinished(bool success, const QString &message);
 
 private slots:
@@ -27,6 +29,9 @@ private slots:
 private:
     QString outputDir;
     QProcess *process;
+
+    void parseOutputLine(const QString &line);
+    void parseErrorLine(const QString &line);
 };
 
 #endif // DOWNLOADER_H
