@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QLabel>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
 #include "Downloader.h"
 #include "GifManager.h"
 
@@ -21,18 +24,22 @@ public:
 private slots:
     void on_saveButton_clicked();
     void on_dlButton_clicked();
-
-
     void onDownloadFinished(bool success, const QString &message);
     void onProgressUpdate(double percentage, const QString &totalSize, const QString &speed, const QString &eta);
     void onInfoMessage(const QString &message);
     void onErrorMessage(const QString &message);
+    void on_actionInstallYtDlp_triggered();
+    void onYtDlpDownloadFinished(QNetworkReply *reply);
 
 private:
     Ui::yt_dlp *ui;
     QString outputDir;
     GifManager *gifManager;
-    Downloader *downloader; // Add this line
+    Downloader *downloader;
+    QNetworkAccessManager *networkManager;
+    void installYtDlp();
+    bool isYtDlpInstalled();
+
 };
 
 #endif // YT_DLP_H

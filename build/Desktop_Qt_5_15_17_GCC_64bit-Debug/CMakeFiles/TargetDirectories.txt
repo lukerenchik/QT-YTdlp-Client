@@ -1,0 +1,9 @@
+/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/CMakeFiles/yt_dlp_client.dir
+/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
+/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
+/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/CMakeFiles/list_install_components.dir
+/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/CMakeFiles/install.dir
+/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/CMakeFiles/install/local.dir
+/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/CMakeFiles/install/strip.dir
+/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/CMakeFiles/yt_dlp_client_autogen_timestamp_deps.dir
+/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/CMakeFiles/yt_dlp_client_autogen.dir

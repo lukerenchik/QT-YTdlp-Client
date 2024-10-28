@@ -1,0 +1,25 @@
+# ninja log v6
+206	2469	1730148386629828575	CMakeFiles/yt_dlp_client.dir/yt_dlp.cpp.o	9a97533e233db12b
+206	2228	1730148386629828575	CMakeFiles/yt_dlp_client.dir/yt_dlp_client_autogen/mocs_compilation.cpp.o	45bca355ffcccb4c
+167	1322	1730145778816378843	CMakeFiles/yt_dlp_client.dir/Downloader.cpp.o	cba2ba05badb9770
+2469	2755	1730148388893883616	yt_dlp_client	27618bea4255e1b6
+12	1387	1730147508416476613	CMakeFiles/yt_dlp_client.dir/GifManager.cpp.o	e9a29748cc1f475b
+2	206	1730148386617828283	/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/yt_dlp_client_autogen/mocs_compilation.cpp	c5f781b905b679ff
+206	2232	1730148386629828575	CMakeFiles/yt_dlp_client.dir/main.cpp.o	8b84bb29638c5eae
+2	206	1730148386617828283	/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/yt_dlp_client_autogen/timestamp	c5f781b905b679ff
+2	206	1730148386617828283	yt_dlp_client_autogen/mocs_compilation.cpp	c5f781b905b679ff
+2	206	1730148386617828283	yt_dlp_client_autogen/timestamp	c5f781b905b679ff
+1	179	1730150831982912421	yt_dlp_client_autogen/timestamp	c5f781b905b679ff
+1	179	1730150831982912421	yt_dlp_client_autogen/mocs_compilation.cpp	c5f781b905b679ff
+1	179	1730150831982912421	/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/yt_dlp_client_autogen/timestamp	c5f781b905b679ff
+1	179	1730150831982912421	/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/yt_dlp_client_autogen/mocs_compilation.cpp	c5f781b905b679ff
+179	1191	1730150831982912421	CMakeFiles/yt_dlp_client.dir/Downloader.cpp.o	c75c23dedbb6b7e
+179	1487	1730150831982912421	CMakeFiles/yt_dlp_client.dir/yt_dlp_client_autogen/mocs_compilation.cpp.o	2babba63531b19
+179	1695	1730150831982912421	CMakeFiles/yt_dlp_client.dir/GifManager.cpp.o	5ee8d1658bca2bc5
+179	1892	1730150831982912421	CMakeFiles/yt_dlp_client.dir/main.cpp.o	f790e89177df20d7
+179	2100	1730150831982912421	CMakeFiles/yt_dlp_client.dir/yt_dlp.cpp.o	a78f6334b57ad97d
+2100	2406	1730150833906970038	yt_dlp_client	6f478c313fa345b
+2	11	1730150899069008492	yt_dlp_client_autogen/timestamp	c5f781b905b679ff
+2	11	1730150899069008492	yt_dlp_client_autogen/mocs_compilation.cpp	c5f781b905b679ff
+2	11	1730150899069008492	/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/yt_dlp_client_autogen/timestamp	c5f781b905b679ff
+2	11	1730150899069008492	/home/lightbringer/Dev/QT-YTdlp-Client/build/Desktop_Qt_5_15_17_GCC_64bit-Debug/yt_dlp_client_autogen/mocs_compilation.cpp	c5f781b905b679ff

@@ -2,6 +2,7 @@
 #include <QDir>
 #include <QFileInfoList>
 #include <QRandomGenerator>
+#include <QString>
 #include <QDebug>
 
 GifManager::GifManager(QLabel *label, QObject *parent)
