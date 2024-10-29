@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_yt_dlp_t {
-    QByteArrayData data[14];
-    char stringdata0[162];
+    QByteArrayData data[17];
+    char stringdata0[253];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,14 +45,20 @@ QT_MOC_LITERAL(9, 113, 9), // "totalSize"
 QT_MOC_LITERAL(10, 123, 5), // "speed"
 QT_MOC_LITERAL(11, 129, 3), // "eta"
 QT_MOC_LITERAL(12, 133, 13), // "onInfoMessage"
-QT_MOC_LITERAL(13, 147, 14) // "onErrorMessage"
+QT_MOC_LITERAL(13, 147, 14), // "onErrorMessage"
+QT_MOC_LITERAL(14, 162, 41), // "on_actionSelectYtDlpInstallPa..."
+QT_MOC_LITERAL(15, 204, 24), // "on_actionAbout_triggered"
+QT_MOC_LITERAL(16, 229, 23) // "on_actionHelp_triggered"
 
     },
     "yt_dlp\0on_saveButton_clicked\0\0"
     "on_dlButton_clicked\0onDownloadFinished\0"
     "success\0message\0onProgressUpdate\0"
     "percentage\0totalSize\0speed\0eta\0"
-    "onInfoMessage\0onErrorMessage"
+    "onInfoMessage\0onErrorMessage\0"
+    "on_actionSelectYtDlpInstallPath_triggered\0"
+    "on_actionAbout_triggered\0"
+    "on_actionHelp_triggered"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,7 +68,7 @@ static const uint qt_meta_data_yt_dlp[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,12 +76,15 @@ static const uint qt_meta_data_yt_dlp[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x08 /* Private */,
-       3,    0,   45,    2, 0x08 /* Private */,
-       4,    2,   46,    2, 0x08 /* Private */,
-       7,    4,   51,    2, 0x08 /* Private */,
-      12,    1,   60,    2, 0x08 /* Private */,
-      13,    1,   63,    2, 0x08 /* Private */,
+       1,    0,   59,    2, 0x08 /* Private */,
+       3,    0,   60,    2, 0x08 /* Private */,
+       4,    2,   61,    2, 0x08 /* Private */,
+       7,    4,   66,    2, 0x08 /* Private */,
+      12,    1,   75,    2, 0x08 /* Private */,
+      13,    1,   78,    2, 0x08 /* Private */,
+      14,    0,   81,    2, 0x08 /* Private */,
+      15,    0,   82,    2, 0x08 /* Private */,
+      16,    0,   83,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -84,6 +93,9 @@ static const uint qt_meta_data_yt_dlp[] = {
     QMetaType::Void, QMetaType::Double, QMetaType::QString, QMetaType::QString, QMetaType::QString,    8,    9,   10,   11,
     QMetaType::Void, QMetaType::QString,    6,
     QMetaType::Void, QMetaType::QString,    6,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -100,6 +112,9 @@ void yt_dlp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 3: _t->onProgressUpdate((*reinterpret_cast< double(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])),(*reinterpret_cast< const QString(*)>(_a[3])),(*reinterpret_cast< const QString(*)>(_a[4]))); break;
         case 4: _t->onInfoMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 5: _t->onErrorMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 6: _t->on_actionSelectYtDlpInstallPath_triggered(); break;
+        case 7: _t->on_actionAbout_triggered(); break;
+        case 8: _t->on_actionHelp_triggered(); break;
         default: ;
         }
     }
@@ -134,13 +149,13 @@ int yt_dlp::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 9)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 9;
     }
     return _id;
 }

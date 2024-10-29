@@ -2,6 +2,7 @@
 #include <QDir>
 #include <QRegularExpression>
 #include <QDebug>
+#include <QCoreApplication>
 
 Downloader::Downloader(QObject *parent)
     : QObject(parent)
@@ -43,7 +44,26 @@ void Downloader::download(const QString &url)
     connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
             this, &Downloader::onProcessFinished);
 
-    process->start("yt-dlp", arguments);
+    // Determine the path to yt-dlp
+    QString ytDlpPath = ytDlpExecutablePath; // Use custom path if set by user
+
+    if (ytDlpPath.isEmpty()) {
+        // Default to local app directory or system path
+        QString appDirPath = QCoreApplication::applicationDirPath();
+
+#ifdef Q_OS_WIN
+        QString ytDlpFileName = "yt-dlp.exe";
+#elif defined(Q_OS_MACOS)
+        QString ytDlpFileName = "yt-dlp_macos";
+#elif defined(Q_OS_LINUX)
+        QString ytDlpFileName = "yt-dlp";
+#endif
+
+        QString ytDlpLocalPath = QDir(appDirPath).filePath(ytDlpFileName);
+        ytDlpPath = QFile::exists(ytDlpLocalPath) ? ytDlpLocalPath : "yt-dlp";
+    }
+
+    process->start(ytDlpPath, arguments);
 
     if (!process->waitForStarted()) {
         emit downloadFinished(false, "Failed to start yt-dlp process.");
@@ -64,6 +84,13 @@ void Downloader::onProcessOutput()
         parseOutputLine(line);
     }
 }
+
+void Downloader::setYtDlpExecutablePath(const QString &path)
+{
+    ytDlpExecutablePath = path;
+}
+
+
 
 
 void Downloader::onProcessErrorOutput()

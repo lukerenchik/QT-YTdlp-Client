@@ -83,6 +83,18 @@
 		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake",
 		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
 		"/home/luke/Qt/Tools/CMake/share/cmake-3.29/Modules/CMakeParseArguments.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5/Qt5Config.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5/Qt5ModuleLocation.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Network/Qt5Network_QConnmanEnginePlugin.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake",
+		"/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Network/Qt5Network_QNetworkManagerEnginePlugin.cmake",
 		"/home/luke/Qt/Tools/CMake/share/cmake-3.29/Modules/GNUInstallDirs.cmake"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/luke/yt_dlp_client",
@@ -113,7 +125,7 @@
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/home/luke/yt_dlp_client/build/Desktop-Debug/yt_dlp_client_autogen/include",
 	"MOC_COMPILATION_FILE" : "/home/luke/yt_dlp_client/build/Desktop-Debug/yt_dlp_client_autogen/mocs_compilation.cpp",
-	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB" ],
+	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_NETWORK_LIB", "QT_WIDGETS_LIB" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
 		[
@@ -128,6 +140,7 @@
 		"/home/luke/Qt/5.15.17/gcc_64/include/QtGui",
 		"/home/luke/Qt/5.15.17/gcc_64/include/QtCore",
 		"/home/luke/Qt/5.15.17/gcc_64/mkspecs/linux-g++",
+		"/home/luke/Qt/5.15.17/gcc_64/include/QtNetwork",
 		"/usr/include",
 		"/usr/include/c++/11",
 		"/usr/include/x86_64-linux-gnu/c++/11",

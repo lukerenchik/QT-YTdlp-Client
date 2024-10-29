@@ -204,7 +204,7 @@
     </property>
     <addaction name="actionHelp"/>
     <addaction name="actionAbout"/>
-    <addaction name="actionInstallYtDlp"/>
+    <addaction name="actionSelectYtDlpInstallPath"/>
    </widget>
    <addaction name="menuSettings"/>
   </widget>
@@ -219,9 +219,9 @@
     <string>About</string>
    </property>
   </action>
-  <action name="actionInstallYtDlp">
+  <action name="actionSelectYtDlpInstallPath">
    <property name="text">
-    <string>Install YtDlp</string>
+    <string>Set YtDlp Path</string>
    </property>
   </action>
  </widget>

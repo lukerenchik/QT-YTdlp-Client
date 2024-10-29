@@ -2,12 +2,9 @@
 #define YT_DLP_H
 
 #include <QMainWindow>
-#include <QLabel>
-#include <QNetworkAccessManager>
-#include <QNetworkRequest>
-#include <QNetworkReply>
 #include "Downloader.h"
 #include "GifManager.h"
+
 
 namespace Ui {
 class yt_dlp;
@@ -28,18 +25,17 @@ private slots:
     void onProgressUpdate(double percentage, const QString &totalSize, const QString &speed, const QString &eta);
     void onInfoMessage(const QString &message);
     void onErrorMessage(const QString &message);
-    void on_actionInstallYtDlp_triggered();
-    void onYtDlpDownloadFinished(QNetworkReply *reply);
+    void on_actionSelectYtDlpInstallPath_triggered();
+    void on_actionAbout_triggered();
+    void on_actionHelp_triggered();
 
 private:
     Ui::yt_dlp *ui;
     QString outputDir;
     GifManager *gifManager;
     Downloader *downloader;
-    QNetworkAccessManager *networkManager;
-    void installYtDlp();
-    bool isYtDlpInstalled();
-
+    QString ytDlpExecutablePath;
+    void setYtDlpExecutablePath(const QString &path);
 };
 
 #endif // YT_DLP_H

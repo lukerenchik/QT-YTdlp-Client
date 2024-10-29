@@ -165,6 +165,11 @@ yt_dlp_client_autogen/timestamp: \
 	/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake \
 	/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake \
 	/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Gui/Qt5Gui_QXdgDesktopPortalThemePlugin.cmake \
+	/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake \
+	/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake \
+	/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Network/Qt5Network_QConnmanEnginePlugin.cmake \
+	/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake \
+	/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Network/Qt5Network_QNetworkManagerEnginePlugin.cmake \
 	/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake \
 	/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake \
 	/home/luke/Qt/5.15.17/gcc_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake \

@@ -4,14 +4,17 @@
 #include <QFileDialog>
 #include <QStandardPaths>
 #include <QMessageBox>
+#include <QSettings>
 
 yt_dlp::yt_dlp(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::yt_dlp)
     , downloader(new Downloader(this))
-    , gifManager(nullptr)
+
 {
     ui->setupUi(this);
+
+    gifManager = new GifManager(ui->gifLabel, this);
 
     // Set default output directory
     outputDir = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
@@ -24,9 +27,17 @@ yt_dlp::yt_dlp(QWidget *parent)
     connect(downloader, &Downloader::infoMessage, this, &yt_dlp::onInfoMessage);
     connect(downloader, &Downloader::errorMessage, this, &yt_dlp::onErrorMessage);
 
-    // Initialize GifManager
-    gifManager = new GifManager(ui->gifLabel, this);
+    // Saving / Loading Stored Path
+    QSettings settings("yt_dlp", "client");
+    ytDlpExecutablePath = settings.value("ytDlpExecutablePath").toString();
 
+    if (!ytDlpExecutablePath.isEmpty()) {
+        downloader->setYtDlpExecutablePath(ytDlpExecutablePath);
+    }
+
+
+
+    // Initialize GifManager
     QDir gifDir = QCoreApplication::applicationDirPath();
     gifDir.cdUp();
     gifDir.cdUp();
@@ -37,6 +48,7 @@ yt_dlp::yt_dlp(QWidget *parent)
 
 yt_dlp::~yt_dlp()
 {
+    delete gifManager;
     delete ui;
 }
 
@@ -94,12 +106,14 @@ void yt_dlp::onProgressUpdate(double percentage, const QString &totalSize, const
 
 void yt_dlp::onInfoMessage(const QString &message)
 {
-    QMessageBox::information(this, "Info", message);
+    //QMessageBox::information(this, "Info", message);
+    return;
 }
 
 void yt_dlp::onErrorMessage(const QString &message)
 {
-    QMessageBox::critical(this, "Error", message);
+    //QMessageBox::critical(this, "Error", message);
+    return;
 }
 
 void yt_dlp::onDownloadFinished(bool success, const QString &message)
@@ -116,94 +130,64 @@ void yt_dlp::onDownloadFinished(bool success, const QString &message)
     }
 }
 
-bool yt_dlp::isYtDlpInstalled()
+void yt_dlp::on_actionSelectYtDlpInstallPath_triggered()
 {
-    QProcess process;
-    process.start("yt-dlp", QStringList() << "--version");
-    if (!process.waitForStarted(3000)){
-        process.kill();
-        return false;
-    }
-
-    return (process.exitCode() == 0);
-}
-
-void yt_dlp::on_actionInstallYtDlp_triggered()
-{
-    installYtDlp();
-}
-
-
-void yt_dlp::installYtDlp()
-{
-    QString ytDlpUrl;
-    QString ytDlpFileName;
+    QString filter;
 
 #ifdef Q_OS_WIN
-    ytDlpUrl = "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe";
-    ytDlpFileName = "yt-dlp.exe";
-#elif defined(Q_OS_MACOS)
-    ytDlpUrl = "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_macos";
-    ytDlpFileName = "yt-dlp_macos";
-#elif defined(Q_OS_LINUX)
-    ytDlpUrl = "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp";
-    ytDlpFileName = "yt-dlp";
-#else
-    QMessageBox::warning(this, "Unsupported OS", "Your operating system is not supported.");
-    return;
+    filter = "Executable Files (*.exe);;All Files (*)";
+#elif defined(Q_OS_MACOS) || defined(Q_OS_LINUX)
+    filter = "All Files (*)";
 #endif
 
-    QMessageBox::information(this, "Installing yt-dlp", "Downloading yt-dlp, Please wait...");
-    QUrl url(ytDlpUrl);
-    QNetworkRequest request(url);
+    QString defaultPath = QDir::homePath();
 
-    if (!networkManager) {
-        networkManager = new QNetworkAccessManager(this);
+    QString filePath = QFileDialog::getOpenFileName(this, tr("Select yt-dlp Executable"), defaultPath, filter);
+
+    if (!filePath.isEmpty()) {
+        // Store the selected path and update the application
+        setYtDlpExecutablePath(filePath);
     }
-
-    QNetworkReply *reply = networkManager->get(request);
-    connect(reply, &QNetworkReply::finished, this, &yt_dlp::onYtDlpDownloadFinished);
-
 }
 
-void yt_dlp::onYtDlpDownloadFinished(QNetworkReply *reply)
+void yt_dlp::setYtDlpExecutablePath(const QString &path)
 {
-    reply->deleteLater();
+    ytDlpExecutablePath = path;
+    downloader->setYtDlpExecutablePath(ytDlpExecutablePath);
 
-    if (reply->error() != QNetworkReply::NoError) {
-        QMessageBox::critical(this, "Download Failed", "Failed to download yt-dlp: " + reply->errorString());
-        return;
-    }
+    QSettings settings("yt_dlp", "client");
+    settings.setValue("ytDlpExecutablePath", ytDlpExecutablePath);
 
-    QByteArray data = reply->readAll();
-
-    QString ytDlpFileName;
-
-#ifdef Q_OS_WIN
-    ytDlpFileName = "yt-dlp.exe";
-#elif defined(Q_OS_MACOS)
-    ytDlpFileName = "yt-dlp_macos";
-#elif defined(Q_OS_LINUX)
-    ytDlpFileName = "yt-dlp";
-#endif
-
-    QString appDirPath = QCoreApplication::applicationDirPath();
-    QString ytDlpFilePath = QDir(appDirPath).filePath(ytDlpFileName);
-
-    QFile file(ytDlpFilePath);
-    if (!file.open(QIODevice::WriteOnly)) {
-        QMessageBox::critical(this, "Save Failed", "Failed to save yt-dlp executable.");
-        return;
-    }
-
-    file.write(data);
-    file.close();
-
-#if defined(Q_OS_MACOS) || defined(Q_OS_LINUX)
-    QFile::Permissions permissions = file.permissions();
-    permissions |= QFile::ExeUser | QFile::ExeGroup | QFile::ExeOther;
-    file.setPermissions(permissions);
-#endif
-
-    QMessageBox::information(this, "Installation Complete", "yt-dlp has been installed successfully.");
+    QMessageBox::information(this, "yt-dlp Path Set", "yt-dlp executable path has been updated.");
 }
+
+void yt_dlp::on_actionAbout_triggered()
+{
+    QString aboutText = QString(
+                            "<h2>yt_dlp client</h2>"
+                            "<p>Version: 1</p>"
+                            "<p>Developed by Luke Renchik.</p>"
+                            );
+
+    QMessageBox::about(
+        this, "About", aboutText);
+}
+
+void yt_dlp::on_actionHelp_triggered()
+{
+    QString helpText = QString(
+        "<h2>Help.</h2>"
+        "<p>Instructions:</p>"
+        "<ol>"
+        "<li>Ensure <a href ='https://github.com/yt-dlp'>yt_dlp</a> is installed</li>"
+        "<li>Enter the URL of the content you wish to download.</li>"
+        "<li>Click on the 'Download' button.</li>"
+
+        "</ol>"
+        );
+
+    QMessageBox::about(
+        this, "Help", helpText);
+}
+
+

@@ -14,6 +14,7 @@ public:
 
     void setOutputDir(const QString &dir);
     void download(const QString &url);
+    void setYtDlpExecutablePath(const QString &path);
 
 signals:
     void progressUpdate(double percentage, const QString &totalSize, const QString &speed, const QString &eta);
@@ -29,6 +30,7 @@ private slots:
 private:
     QString outputDir;
     QProcess *process;
+    QString ytDlpExecutablePath;
 
     void parseOutputLine(const QString &line);
     void parseErrorLine(const QString &line);

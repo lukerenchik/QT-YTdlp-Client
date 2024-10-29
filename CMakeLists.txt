@@ -42,6 +42,7 @@ else()
             Downloader.h
             Downloader.cpp
             GifManager.h GifManager.cpp
+
         )
     endif()
 endif()
