@@ -2,6 +2,10 @@
   /home/luke/yt_dlp_client/build/Desktop-Debug/yt_dlp_client_autogen/moc_predefs.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QObject \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QProcess \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QSharedDataPointer \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QString \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QUrl \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QVariant \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qalgorithms.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qarraydata.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qatomic.h \
@@ -40,6 +44,7 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qlogging.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qmap.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qmargins.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qmetaobject.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qmetatype.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qnamespace.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qnumeric.h \
@@ -106,6 +111,20 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtguiglobal.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtransform.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qwindowdefs.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtMultimedia/QMediaPlayer \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtMultimedia/qaudio.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtMultimedia/qmediacontent.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtMultimedia/qmediaobject.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtMultimedia/qmediaplayer.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtMultimedia/qmediaresource.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtMultimedia/qmultimedia.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qnetworkrequest.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qtnetwork-config.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qtnetworkglobal.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/QDialog \
   /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/QLabel \
   /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/QMainWindow \

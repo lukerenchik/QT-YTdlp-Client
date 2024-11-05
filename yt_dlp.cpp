@@ -6,6 +6,8 @@
 #include <QStandardPaths>
 #include <QMessageBox>
 #include <QSettings>
+#include <QTimer>
+
 
 yt_dlp::yt_dlp(QWidget *parent)
     : QMainWindow(parent)
@@ -15,18 +17,30 @@ yt_dlp::yt_dlp(QWidget *parent)
 {
     ui->setupUi(this);
 
-    gifManager = new GifManager(ui->gifLabel, this);
-
-    // Set default output directory
-    outputDir = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
-    ui->outputDirLabel->setText(outputDir);
-    downloader->setOutputDir(outputDir);
-
-    // Connect downloader signals to slots
+    // Setting up UI Connections
     connect(downloader, &Downloader::downloadFinished, this, &yt_dlp::onDownloadFinished);
     connect(downloader, &Downloader::progressUpdate, this, &yt_dlp::onProgressUpdate);
     connect(downloader, &Downloader::infoMessage, this, &yt_dlp::onInfoMessage);
     connect(downloader, &Downloader::errorMessage, this, &yt_dlp::onErrorMessage);
+    connect(ui->radioButtonVideo, &QRadioButton::toggled, this, &yt_dlp::onDownloadTypeChanged);
+    connect(ui->radioButtonAudio, &QRadioButton::toggled, this, &yt_dlp::onDownloadTypeChanged);
+
+    // Initialize GifManager
+    gifManager = new GifManager(ui->gifLabel, this);
+    QDir gifDir = QCoreApplication::applicationDirPath();
+    gifDir.cdUp();
+    gifDir.cdUp();
+    QString gifDirectoryPath = gifDir.filePath("gifs");
+    gifManager->setGifDirectory(gifDirectoryPath);
+    gifManager->displayRandomGif();
+
+
+    // Set Default File Output
+    outputDir = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+    ui->outputDirLabel->setText(outputDir);
+    downloader->setOutputDir(outputDir);
+    downloadOptions.downloadType = DownloadSettings::Options::Video; // Default to video
+
 
     // Saving / Loading Stored Path
     QSettings settings("yt_dlp", "client");
@@ -36,24 +50,25 @@ yt_dlp::yt_dlp(QWidget *parent)
         downloader->setYtDlpExecutablePath(ytDlpExecutablePath);
     }
 
-    // Initialize download options
-    downloadOptions.downloadType = DownloadSettings::Options::Video; // Default to video
 
-    // Connect signals if needed
-    connect(ui->radioButtonVideo, &QRadioButton::toggled, this, &yt_dlp::onDownloadTypeChanged);
-    connect(ui->radioButtonAudio, &QRadioButton::toggled, this, &yt_dlp::onDownloadTypeChanged);
+    // Initialize Media Player
+    mediaPlayer = new QMediaPlayer(this);
+    QString audioFilePath = QDir(QCoreApplication::applicationDirPath()).filePath("../../music/hwr.mp3");
+    QUrl audioUrl = QUrl::fromLocalFile(audioFilePath);
+     mediaPlayer->setMedia(audioUrl);
+     mediaPlayer->setVolume(50);
 
-    // Initialize GifManager
-    QDir gifDir = QCoreApplication::applicationDirPath();
-    gifDir.cdUp();
-    gifDir.cdUp();
-    QString gifDirectoryPath = gifDir.filePath("gifs");
-    gifManager->setGifDirectory(gifDirectoryPath);
-    gifManager->displayRandomGif();
+    // Play the audio when the application starts
+    QTimer::singleShot(0, this, [this]() {
+        mediaPlayer->play();
+    });
 }
+
+//Cleanup Function
 
 yt_dlp::~yt_dlp()
 {
+    delete mediaPlayer;
     delete gifManager;
     delete ui;
 }
@@ -114,13 +129,14 @@ void yt_dlp::onProgressUpdate(double percentage, const QString &totalSize, const
         ui->labelETA->setText("ETA: " + eta);
 }
 
-
+//Debug Function
 void yt_dlp::onInfoMessage(const QString &message)
 {
     //QMessageBox::information(this, "Info", message);
     return;
 }
 
+//Debug Function
 void yt_dlp::onErrorMessage(const QString &message)
 {
     //QMessageBox::critical(this, "Error", message);
@@ -156,7 +172,6 @@ void yt_dlp::on_actionSelectYtDlpInstallPath_triggered()
     QString filePath = QFileDialog::getOpenFileName(this, tr("Select yt-dlp Executable"), defaultPath, filter);
 
     if (!filePath.isEmpty()) {
-        // Store the selected path and update the application
         setYtDlpExecutablePath(filePath);
     }
 }
@@ -209,11 +224,9 @@ void yt_dlp::on_actionDownload_Settings_triggered()
     dlg.setOptions(downloadOptions);
 
     if (dlg.exec() == QDialog::Accepted) {
-        // Retrieve the options selected by the user
         downloadOptions = dlg.getOptions();
     }
 
-    // Update the main UI radio buttons based on the settings (optional)
     if (downloadOptions.downloadType == DownloadSettings::Options::Video) {
         ui->radioButtonVideo->setChecked(true);
     } else if (downloadOptions.downloadType == DownloadSettings::Options::Audio) {
@@ -228,6 +241,20 @@ void yt_dlp::onDownloadTypeChanged()
         downloadOptions.downloadType = DownloadSettings::Options::Video;
     } else if (ui->radioButtonAudio->isChecked()) {
         downloadOptions.downloadType = DownloadSettings::Options::Audio;
+    }
+}
+
+void yt_dlp::on_checkboxDisableMusic_stateChanged(int state)
+{
+
+    if (state == Qt::Checked) {
+        if (mediaPlayer->state() == QMediaPlayer::PlayingState) {
+            mediaPlayer->stop();
+        }
+    } else {
+        if (mediaPlayer->state() != QMediaPlayer::PlayingState) {
+            mediaPlayer->play();
+        }
     }
 }
 

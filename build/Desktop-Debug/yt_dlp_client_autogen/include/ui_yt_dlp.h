@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -37,24 +38,25 @@ public:
     QWidget *centralwidget;
     QWidget *gridLayoutWidget_3;
     QGridLayout *gridLayout_6;
-    QLabel *labelTotalSize;
-    QHBoxLayout *horizontalLayout;
-    QLabel *ytLink;
-    QLineEdit *urlLineEdit;
-    QPushButton *dlButton;
-    QPushButton *saveButton;
-    QLabel *labelSpeed;
-    QProgressBar *progressBar;
-    QGridLayout *gridLayout_5;
-    QLabel *gifLabel;
-    QGridLayout *gridLayout_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QLabel *outputDirLabel;
+    QProgressBar *progressBar;
+    QPushButton *dlButton;
+    QHBoxLayout *horizontalLayout;
+    QLabel *ytLink;
+    QLineEdit *urlLineEdit;
     QLabel *labelETA;
+    QGridLayout *gridLayout_2;
+    QLabel *labelSpeed;
+    QGridLayout *gridLayout_5;
+    QLabel *gifLabel;
     QHBoxLayout *horizontalLayout_3;
     QRadioButton *radioButtonVideo;
     QRadioButton *radioButtonAudio;
+    QPushButton *saveButton;
+    QLabel *labelTotalSize;
+    QCheckBox *checkboxDisableMusic;
     QMenuBar *menubar;
     QMenu *menuSettings;
     QStatusBar *statusbar;
@@ -88,15 +90,46 @@ public:
         gridLayout_6 = new QGridLayout(gridLayoutWidget_3);
         gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
         gridLayout_6->setContentsMargins(0, 0, 0, 0);
-        labelTotalSize = new QLabel(gridLayoutWidget_3);
-        labelTotalSize->setObjectName(QString::fromUtf8("labelTotalSize"));
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        label = new QLabel(gridLayoutWidget_3);
+        label->setObjectName(QString::fromUtf8("label"));
+        QSizePolicy sizePolicy1(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(labelTotalSize->sizePolicy().hasHeightForWidth());
-        labelTotalSize->setSizePolicy(sizePolicy1);
+        sizePolicy1.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy1);
 
-        gridLayout_6->addWidget(labelTotalSize, 6, 1, 1, 1);
+        horizontalLayout_2->addWidget(label);
+
+        outputDirLabel = new QLabel(gridLayoutWidget_3);
+        outputDirLabel->setObjectName(QString::fromUtf8("outputDirLabel"));
+
+        horizontalLayout_2->addWidget(outputDirLabel);
+
+
+        gridLayout_6->addLayout(horizontalLayout_2, 11, 1, 1, 1);
+
+        progressBar = new QProgressBar(gridLayoutWidget_3);
+        progressBar->setObjectName(QString::fromUtf8("progressBar"));
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(progressBar->sizePolicy().hasHeightForWidth());
+        progressBar->setSizePolicy(sizePolicy2);
+        progressBar->setValue(24);
+
+        gridLayout_6->addWidget(progressBar, 5, 1, 1, 1);
+
+        dlButton = new QPushButton(gridLayoutWidget_3);
+        dlButton->setObjectName(QString::fromUtf8("dlButton"));
+        QSizePolicy sizePolicy3(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(dlButton->sizePolicy().hasHeightForWidth());
+        dlButton->setSizePolicy(sizePolicy3);
+
+        gridLayout_6->addWidget(dlButton, 4, 1, 1, 1);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
@@ -113,9 +146,6 @@ public:
 
         urlLineEdit = new QLineEdit(gridLayoutWidget_3);
         urlLineEdit->setObjectName(QString::fromUtf8("urlLineEdit"));
-        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(urlLineEdit->sizePolicy().hasHeightForWidth());
         urlLineEdit->setSizePolicy(sizePolicy2);
 
@@ -124,84 +154,42 @@ public:
 
         gridLayout_6->addLayout(horizontalLayout, 2, 1, 1, 1);
 
-        dlButton = new QPushButton(gridLayoutWidget_3);
-        dlButton->setObjectName(QString::fromUtf8("dlButton"));
-        QSizePolicy sizePolicy3(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(dlButton->sizePolicy().hasHeightForWidth());
-        dlButton->setSizePolicy(sizePolicy3);
-
-        gridLayout_6->addWidget(dlButton, 4, 1, 1, 1);
-
-        saveButton = new QPushButton(gridLayoutWidget_3);
-        saveButton->setObjectName(QString::fromUtf8("saveButton"));
-        sizePolicy3.setHeightForWidth(saveButton->sizePolicy().hasHeightForWidth());
-        saveButton->setSizePolicy(sizePolicy3);
-
-        gridLayout_6->addWidget(saveButton, 3, 1, 1, 1);
-
-        labelSpeed = new QLabel(gridLayoutWidget_3);
-        labelSpeed->setObjectName(QString::fromUtf8("labelSpeed"));
-        sizePolicy1.setHeightForWidth(labelSpeed->sizePolicy().hasHeightForWidth());
-        labelSpeed->setSizePolicy(sizePolicy1);
-
-        gridLayout_6->addWidget(labelSpeed, 7, 1, 1, 1);
-
-        progressBar = new QProgressBar(gridLayoutWidget_3);
-        progressBar->setObjectName(QString::fromUtf8("progressBar"));
-        sizePolicy2.setHeightForWidth(progressBar->sizePolicy().hasHeightForWidth());
-        progressBar->setSizePolicy(sizePolicy2);
-        progressBar->setValue(24);
-
-        gridLayout_6->addWidget(progressBar, 5, 1, 1, 1);
-
-        gridLayout_5 = new QGridLayout();
-        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
-        gifLabel = new QLabel(gridLayoutWidget_3);
-        gifLabel->setObjectName(QString::fromUtf8("gifLabel"));
-        QSizePolicy sizePolicy4(QSizePolicy::Maximum, QSizePolicy::Expanding);
+        labelETA = new QLabel(gridLayoutWidget_3);
+        labelETA->setObjectName(QString::fromUtf8("labelETA"));
+        QSizePolicy sizePolicy4(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sizePolicy4.setHorizontalStretch(0);
         sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(gifLabel->sizePolicy().hasHeightForWidth());
-        gifLabel->setSizePolicy(sizePolicy4);
+        sizePolicy4.setHeightForWidth(labelETA->sizePolicy().hasHeightForWidth());
+        labelETA->setSizePolicy(sizePolicy4);
 
-        gridLayout_5->addWidget(gifLabel, 2, 0, 1, 1);
-
-
-        gridLayout_6->addLayout(gridLayout_5, 0, 1, 1, 1);
+        gridLayout_6->addWidget(labelETA, 8, 1, 1, 1);
 
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
 
         gridLayout_6->addLayout(gridLayout_2, 2, 0, 1, 1);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label = new QLabel(gridLayoutWidget_3);
-        label->setObjectName(QString::fromUtf8("label"));
-        QSizePolicy sizePolicy5(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
+        labelSpeed = new QLabel(gridLayoutWidget_3);
+        labelSpeed->setObjectName(QString::fromUtf8("labelSpeed"));
+        sizePolicy4.setHeightForWidth(labelSpeed->sizePolicy().hasHeightForWidth());
+        labelSpeed->setSizePolicy(sizePolicy4);
+
+        gridLayout_6->addWidget(labelSpeed, 7, 1, 1, 1);
+
+        gridLayout_5 = new QGridLayout();
+        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
+        gifLabel = new QLabel(gridLayoutWidget_3);
+        gifLabel->setObjectName(QString::fromUtf8("gifLabel"));
+        QSizePolicy sizePolicy5(QSizePolicy::Maximum, QSizePolicy::Expanding);
         sizePolicy5.setHorizontalStretch(0);
         sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy5);
+        sizePolicy5.setHeightForWidth(gifLabel->sizePolicy().hasHeightForWidth());
+        gifLabel->setSizePolicy(sizePolicy5);
 
-        horizontalLayout_2->addWidget(label);
-
-        outputDirLabel = new QLabel(gridLayoutWidget_3);
-        outputDirLabel->setObjectName(QString::fromUtf8("outputDirLabel"));
-
-        horizontalLayout_2->addWidget(outputDirLabel);
+        gridLayout_5->addWidget(gifLabel, 2, 0, 1, 1);
 
 
-        gridLayout_6->addLayout(horizontalLayout_2, 11, 1, 1, 1);
-
-        labelETA = new QLabel(gridLayoutWidget_3);
-        labelETA->setObjectName(QString::fromUtf8("labelETA"));
-        sizePolicy1.setHeightForWidth(labelETA->sizePolicy().hasHeightForWidth());
-        labelETA->setSizePolicy(sizePolicy1);
-
-        gridLayout_6->addWidget(labelETA, 8, 1, 1, 1);
+        gridLayout_6->addLayout(gridLayout_5, 0, 1, 1, 1);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
@@ -217,6 +205,25 @@ public:
 
 
         gridLayout_6->addLayout(horizontalLayout_3, 1, 1, 1, 1);
+
+        saveButton = new QPushButton(gridLayoutWidget_3);
+        saveButton->setObjectName(QString::fromUtf8("saveButton"));
+        sizePolicy3.setHeightForWidth(saveButton->sizePolicy().hasHeightForWidth());
+        saveButton->setSizePolicy(sizePolicy3);
+
+        gridLayout_6->addWidget(saveButton, 3, 1, 1, 1);
+
+        labelTotalSize = new QLabel(gridLayoutWidget_3);
+        labelTotalSize->setObjectName(QString::fromUtf8("labelTotalSize"));
+        sizePolicy4.setHeightForWidth(labelTotalSize->sizePolicy().hasHeightForWidth());
+        labelTotalSize->setSizePolicy(sizePolicy4);
+
+        gridLayout_6->addWidget(labelTotalSize, 6, 1, 1, 1);
+
+        checkboxDisableMusic = new QCheckBox(gridLayoutWidget_3);
+        checkboxDisableMusic->setObjectName(QString::fromUtf8("checkboxDisableMusic"));
+
+        gridLayout_6->addWidget(checkboxDisableMusic, 12, 1, 1, 1);
 
         yt_dlp->setCentralWidget(centralwidget);
         menubar = new QMenuBar(yt_dlp);
@@ -247,17 +254,18 @@ public:
         actionAbout->setText(QCoreApplication::translate("yt_dlp", "About", nullptr));
         actionSelectYtDlpInstallPath->setText(QCoreApplication::translate("yt_dlp", "Set YtDlp Path", nullptr));
         actionDownload_Settings->setText(QCoreApplication::translate("yt_dlp", "Download Settings", nullptr));
-        labelTotalSize->setText(QCoreApplication::translate("yt_dlp", "Total Size:", nullptr));
-        ytLink->setText(QCoreApplication::translate("yt_dlp", "Youtube Link", nullptr));
-        dlButton->setText(QCoreApplication::translate("yt_dlp", "Download", nullptr));
-        saveButton->setText(QCoreApplication::translate("yt_dlp", "Select Save Folder", nullptr));
-        labelSpeed->setText(QCoreApplication::translate("yt_dlp", "Download Speed:", nullptr));
-        gifLabel->setText(QString());
         label->setText(QCoreApplication::translate("yt_dlp", "Current Output Folder:", nullptr));
         outputDirLabel->setText(QString());
+        dlButton->setText(QCoreApplication::translate("yt_dlp", "Download", nullptr));
+        ytLink->setText(QCoreApplication::translate("yt_dlp", "Youtube Link", nullptr));
         labelETA->setText(QCoreApplication::translate("yt_dlp", "ETA: ", nullptr));
+        labelSpeed->setText(QCoreApplication::translate("yt_dlp", "Download Speed:", nullptr));
+        gifLabel->setText(QString());
         radioButtonVideo->setText(QCoreApplication::translate("yt_dlp", "Video File", nullptr));
         radioButtonAudio->setText(QCoreApplication::translate("yt_dlp", "Audio File", nullptr));
+        saveButton->setText(QCoreApplication::translate("yt_dlp", "Select Save Folder", nullptr));
+        labelTotalSize->setText(QCoreApplication::translate("yt_dlp", "Total Size:", nullptr));
+        checkboxDisableMusic->setText(QCoreApplication::translate("yt_dlp", "Disable Music", nullptr));
         menuSettings->setTitle(QCoreApplication::translate("yt_dlp", "Settings", nullptr));
     } // retranslateUi
 

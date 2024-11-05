@@ -5,6 +5,7 @@
 #include "Downloader.h"
 #include "GifManager.h"
 #include "DownloadSettings.h"
+#include <QMediaPlayer>
 
 
 namespace Ui {
@@ -31,6 +32,7 @@ private slots:
     void on_actionHelp_triggered();
     void on_actionDownload_Settings_triggered();
     void onDownloadTypeChanged();
+    void on_checkboxDisableMusic_stateChanged(int state);
 
 private:
     Ui::yt_dlp *ui;
@@ -40,6 +42,7 @@ private:
     QString ytDlpExecutablePath;
     void setYtDlpExecutablePath(const QString &path);
     DownloadSettings::Options downloadOptions;
+    QMediaPlayer *mediaPlayer;
 };
 
 #endif // YT_DLP_H

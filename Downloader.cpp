@@ -32,17 +32,14 @@ void Downloader::download(const QString &url, const DownloadSettings::Options &o
 
     QStringList arguments;
 
-    // Handle download type
     if (options.downloadType == DownloadSettings::Options::Audio) {
-        // Audio download options
         arguments << "-x"; // Extract audio
         if (!options.audioFormat.isEmpty()) {
             arguments << "--audio-format" << options.audioFormat;
         } else {
-            arguments << "--audio-format" << "m4a"; // Default audio format
+            arguments << "--audio-format" << "m4a";
         }
     } else if (options.downloadType == DownloadSettings::Options::Video) {
-        // Video download options
         if (!options.format.isEmpty()) {
             arguments << "-f" << options.format;
         } else {
@@ -106,7 +103,6 @@ void Downloader::download(const QString &url, const DownloadSettings::Options &o
     // Add the URL
     arguments << url;
 
-    // Rest of the function remains the same
     process = new QProcess(this);
 
     connect(process, &QProcess::readyReadStandardOutput, this, &Downloader::onProcessOutput);
@@ -115,7 +111,7 @@ void Downloader::download(const QString &url, const DownloadSettings::Options &o
             this, &Downloader::onProcessFinished);
 
     // Determine the path to yt-dlp
-    QString ytDlpPath = ytDlpExecutablePath; // Use custom path if set by user
+    QString ytDlpPath = ytDlpExecutablePath;
 
     if (ytDlpPath.isEmpty()) {
         // Default to local app directory or system path

@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
-find_package(Qt5 COMPONENTS Core Gui Network REQUIRED)
+find_package(Qt5 COMPONENTS Core Gui Multimedia Network REQUIRED)
 
 set(CMAKE_AUTOUIC ON)
 
@@ -81,4 +81,4 @@ if(QT_VERSION_MAJOR EQUAL 6)
 endif()
 
 
-target_link_libraries(yt_dlp_client PRIVATE Qt5::Core Qt5::Gui Qt5::Network)
+target_link_libraries(yt_dlp_client PRIVATE Qt5::Core Qt5::Gui Qt5::Multimedia Qt5::Network)
