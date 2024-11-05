@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-60d7cf0a77db812ffddf.json",
+					"jsonFile" : "directory-.-Debug-cbb1e0c409f54476f9ab.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "yt_dlp_client::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-yt_dlp_client-Debug-2240514c01bc41069068.json",
+					"jsonFile" : "target-yt_dlp_client-Debug-303c97002bb98735a6d1.json",
 					"name" : "yt_dlp_client",
 					"projectIndex" : 0
 				},

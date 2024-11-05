@@ -105,8 +105,10 @@ yt_dlp_client_autogen/timestamp: \
 	/home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtguiglobal.h \
 	/home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtransform.h \
 	/home/luke/Qt/5.15.17/gcc_64/include/QtGui/qwindowdefs.h \
+	/home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/QDialog \
 	/home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/QLabel \
 	/home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/QMainWindow \
+	/home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qdialog.h \
 	/home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qframe.h \
 	/home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qlabel.h \
 	/home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -192,6 +194,8 @@ yt_dlp_client_autogen/timestamp: \
 	/home/luke/Qt/Tools/CMake/share/cmake-3.29/Modules/Platform/Linux.cmake \
 	/home/luke/Qt/Tools/CMake/share/cmake-3.29/Modules/Platform/UnixPaths.cmake \
 	/home/luke/yt_dlp_client/CMakeLists.txt \
+	/home/luke/yt_dlp_client/DownloadSettings.cpp \
+	/home/luke/yt_dlp_client/DownloadSettings.h \
 	/home/luke/yt_dlp_client/Downloader.cpp \
 	/home/luke/yt_dlp_client/Downloader.h \
 	/home/luke/yt_dlp_client/GifManager.cpp \
@@ -466,5 +470,6 @@ yt_dlp_client_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/sys/types.h \
 	/usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
 	/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+	/home/luke/yt_dlp_client/DownloadSettings.ui \
 	/home/luke/yt_dlp_client/yt_dlp.ui \
 	/home/luke/Qt/Tools/CMake/bin/cmake

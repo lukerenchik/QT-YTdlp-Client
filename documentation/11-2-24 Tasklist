@@ -1,0 +1,74 @@
+Create options for the following:
+
+-I, --playlist-items ITEM_SPEC  Comma separated playlist_index of the items
+                                to download. You can specify a range using
+                                "[START]:[STOP][:STEP]". For backward
+                                compatibility, START-STOP is also supported.
+                                Use negative indices to count from the right
+                                and negative STEP to download in reverse
+                                order. E.g. "-I 1:3,7,-5::2" used on a
+                                playlist of size 15 will download the items
+                                at index 1,2,3,7,11,13,15
+
+--no-playlist                   Download only the video, if the URL refers
+                                to a video and a playlist
+--yes-playlist                  Download the playlist, if the URL refers to
+                                a video and a playlist
+
+--max-downloads NUMBER          Abort after downloading NUMBER files
+
+-r, --limit-rate RATE           Maximum download rate in bytes per second,
+                                e.g. 50K or 4.2M
+
+--playlist-random               Download playlist videos in random order
+
+-o, --output [TYPES:]TEMPLATE   Output filename template; see "OUTPUT
+                                TEMPLATE" for details
+
+--restrict-filenames            Restrict filenames to only ASCII characters,
+                                and avoid "&" and spaces in filenames
+
+--windows-filenames             Force filenames to be Windows-compatible
+
+--trim-filenames LENGTH         Limit the filename length (excluding
+                                extension) to the specified number of
+                                characters
+
+--write-thumbnail               Write thumbnail image to disk
+
+--no-write-thumbnail            Do not write thumbnail image to disk (default)
+
+-f, --format FORMAT             Video format code, see "FORMAT SELECTION"
+                                for more details
+
+--write-subs                    Write subtitle file
+
+-x, --extract-audio             Convert video files to audio-only files
+                                (requires ffmpeg and ffprobe)
+
+--audio-format FORMAT           Format to convert the audio to when -x is
+                                used. (currently supported: best (default),
+                                aac, alac, flac, m4a, mp3, opus, vorbis,
+                                wav). You can specify multiple rules using
+                                similar syntax as --remux-video
+
+
+--remux-video FORMAT            Remux the video into another container if
+                                necessary (currently supported: avi, flv,
+                                gif, mkv, mov, mp4, webm, aac, aiff, alac,
+                                flac, m4a, mka, mp3, ogg, opus, vorbis,
+                                wav). If the target container does not
+                                support the video/audio codec, remuxing will
+                                fail. You can specify multiple rules; e.g.
+                                "aac>m4a/mov>mp4/mkv" will remux aac to m4a,
+                                mov to mp4 and anything else to mkv
+
+
+--ffmpeg-location PATH          Location of the ffmpeg binary; either the
+                                path to the binary or its containing directory
+
+--split-chapters                Split video into multiple files based on
+                                internal chapters. The "chapter:" prefix can
+                                be used with "--paths" and "--output" to set
+                                the output filename for the split files. See
+                                "OUTPUT TEMPLATE" for details

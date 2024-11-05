@@ -104,6 +104,12 @@
 	"HEADERS" : 
 	[
 		[
+			"/home/luke/yt_dlp_client/DownloadSettings.h",
+			"MU",
+			"EWIEGA46WW/moc_DownloadSettings.cpp",
+			null
+		],
+		[
 			"/home/luke/yt_dlp_client/Downloader.h",
 			"MU",
 			"EWIEGA46WW/moc_Downloader.cpp",
@@ -174,6 +180,7 @@
 	"SETTINGS_FILE" : "/home/luke/yt_dlp_client/build/Desktop-Debug/CMakeFiles/yt_dlp_client_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "/home/luke/yt_dlp_client/DownloadSettings.cpp", "MU", null ],
 		[ "/home/luke/yt_dlp_client/Downloader.cpp", "MU", null ],
 		[ "/home/luke/yt_dlp_client/GifManager.cpp", "MU", null ],
 		[ "/home/luke/yt_dlp_client/main.cpp", "MU", null ],

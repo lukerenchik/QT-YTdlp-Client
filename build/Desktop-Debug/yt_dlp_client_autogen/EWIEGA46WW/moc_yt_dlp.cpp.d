@@ -106,8 +106,10 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtguiglobal.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtransform.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qwindowdefs.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/QDialog \
   /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/QLabel \
   /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/QMainWindow \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qdialog.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qframe.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qlabel.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -116,6 +118,7 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qtwidgets-config.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qwidget.h \
+  /home/luke/yt_dlp_client/DownloadSettings.h \
   /home/luke/yt_dlp_client/Downloader.h \
   /home/luke/yt_dlp_client/GifManager.h \
   /usr/include/alloca.h \

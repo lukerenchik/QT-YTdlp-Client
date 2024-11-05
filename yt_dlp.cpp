@@ -1,6 +1,7 @@
 #include "yt_dlp.h"
 #include "./ui_yt_dlp.h"
 #include "Downloader.h"
+#include "DownloadSettings.h"
 #include <QFileDialog>
 #include <QStandardPaths>
 #include <QMessageBox>
@@ -35,7 +36,12 @@ yt_dlp::yt_dlp(QWidget *parent)
         downloader->setYtDlpExecutablePath(ytDlpExecutablePath);
     }
 
+    // Initialize download options
+    downloadOptions.downloadType = DownloadSettings::Options::Video; // Default to video
 
+    // Connect signals if needed
+    connect(ui->radioButtonVideo, &QRadioButton::toggled, this, &yt_dlp::onDownloadTypeChanged);
+    connect(ui->radioButtonAudio, &QRadioButton::toggled, this, &yt_dlp::onDownloadTypeChanged);
 
     // Initialize GifManager
     QDir gifDir = QCoreApplication::applicationDirPath();
@@ -86,8 +92,13 @@ void yt_dlp::on_dlButton_clicked()
     ui->labelSpeed->clear();
     ui->labelETA->clear();
 
-    downloader->download(url);
+    // Ensure the download type is updated
+    onDownloadTypeChanged();
+
+    downloader->download(url, downloadOptions);
 }
+
+
 
 void yt_dlp::onProgressUpdate(double percentage, const QString &totalSize, const QString &speed, const QString &eta)
 {
@@ -190,4 +201,33 @@ void yt_dlp::on_actionHelp_triggered()
         this, "Help", helpText);
 }
 
+void yt_dlp::on_actionDownload_Settings_triggered()
+{
+    DownloadSettings dlg(this);
+
+    // Load existing options
+    dlg.setOptions(downloadOptions);
+
+    if (dlg.exec() == QDialog::Accepted) {
+        // Retrieve the options selected by the user
+        downloadOptions = dlg.getOptions();
+    }
+
+    // Update the main UI radio buttons based on the settings (optional)
+    if (downloadOptions.downloadType == DownloadSettings::Options::Video) {
+        ui->radioButtonVideo->setChecked(true);
+    } else if (downloadOptions.downloadType == DownloadSettings::Options::Audio) {
+        ui->radioButtonAudio->setChecked(true);
+    }
+}
+
+
+void yt_dlp::onDownloadTypeChanged()
+{
+    if (ui->radioButtonVideo->isChecked()) {
+        downloadOptions.downloadType = DownloadSettings::Options::Video;
+    } else if (ui->radioButtonAudio->isChecked()) {
+        downloadOptions.downloadType = DownloadSettings::Options::Audio;
+    }
+}
 

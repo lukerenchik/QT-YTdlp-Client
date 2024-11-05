@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "Downloader.h"
 #include "GifManager.h"
+#include "DownloadSettings.h"
 
 
 namespace Ui {
@@ -28,6 +29,8 @@ private slots:
     void on_actionSelectYtDlpInstallPath_triggered();
     void on_actionAbout_triggered();
     void on_actionHelp_triggered();
+    void on_actionDownload_Settings_triggered();
+    void onDownloadTypeChanged();
 
 private:
     Ui::yt_dlp *ui;
@@ -36,6 +39,7 @@ private:
     Downloader *downloader;
     QString ytDlpExecutablePath;
     void setYtDlpExecutablePath(const QString &path);
+    DownloadSettings::Options downloadOptions;
 };
 
 #endif // YT_DLP_H

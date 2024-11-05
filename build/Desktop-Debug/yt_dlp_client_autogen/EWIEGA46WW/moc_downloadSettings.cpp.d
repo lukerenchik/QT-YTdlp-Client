@@ -1,14 +1,5 @@
-/home/luke/yt_dlp_client/build/Desktop-Debug/yt_dlp_client_autogen/EWIEGA46WW/moc_YtDlpInstaller.cpp: /home/luke/yt_dlp_client/YtDlpInstaller.h \
+/home/luke/yt_dlp_client/build/Desktop-Debug/yt_dlp_client_autogen/EWIEGA46WW/moc_downloadSettings.cpp: /home/luke/yt_dlp_client/downloadSettings.h \
   /home/luke/yt_dlp_client/build/Desktop-Debug/yt_dlp_client_autogen/moc_predefs.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QFlags \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QIODevice \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QMetaType \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QObject \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QSharedDataPointer \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QString \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QUrl \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QVariant \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/QVector \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qalgorithms.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qarraydata.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qatomic.h \
@@ -21,10 +12,7 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qconfig.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qcontainerfwd.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qcontainertools_impl.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qcontiguouscache.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qcryptographichash.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qdatetime.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qdebug.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qdatastream.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qflags.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qgenericatomic.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qglobal.h \
@@ -33,10 +21,10 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qhashfunctions.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qiodevice.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qiterator.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qline.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qlist.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qlocale.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qlogging.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qmap.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qmargins.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qmetatype.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qnamespace.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qnumeric.h \
@@ -45,14 +33,16 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qobjectdefs.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qobjectdefs_impl.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qpair.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qpoint.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qprocessordetection.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qrect.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qrefcount.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qregexp.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qscopedpointer.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qset.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qshareddata.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qsharedpointer.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qsharedpointer_impl.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qsize.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qstring.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qstringalgorithms.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qstringlist.h \
@@ -62,31 +52,37 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qsysinfo.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qsystemdetection.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qtcore-config.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qtextstream.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qtypeinfo.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qurl.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qvariant.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qvarlengtharray.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qvector.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qversiontagging.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/QNetworkAccessManager \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/QNetworkReply \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/QNetworkRequest \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/QSslConfiguration \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qabstractsocket.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qnetworkreply.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qnetworkrequest.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qssl.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qsslcertificate.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qsslconfiguration.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qsslerror.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qsslsocket.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qtcpsocket.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qtnetwork-config.h \
-  /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qbrush.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qcolor.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qcursor.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qfont.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qfontinfo.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qfontmetrics.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qimage.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qkeysequence.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qmatrix.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qpaintdevice.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qpalette.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qpixelformat.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qpixmap.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qpolygon.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qregion.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qrgb.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qrgba64.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtgui-config.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtguiglobal.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtransform.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qwindowdefs.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/QDialog \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qdialog.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qsizepolicy.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qtwidgets-config.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qwidget.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -248,7 +244,6 @@
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdint.h \
-  /usr/include/stdio.h \
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
@@ -287,7 +282,6 @@
   /usr/include/x86_64-linux-gnu/bits/setjmp.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
@@ -300,19 +294,15 @@
   /usr/include/x86_64-linux-gnu/bits/types.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \

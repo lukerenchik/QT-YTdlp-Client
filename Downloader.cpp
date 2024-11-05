@@ -23,7 +23,7 @@ void Downloader::setOutputDir(const QString &dir)
     outputDir = dir;
 }
 
-void Downloader::download(const QString &url)
+void Downloader::download(const QString &url, const DownloadSettings::Options &options)
 {
     if (url.isEmpty() || outputDir.isEmpty()) {
         emit downloadFinished(false, "URL or output directory is empty.");
@@ -31,12 +31,82 @@ void Downloader::download(const QString &url)
     }
 
     QStringList arguments;
-    arguments << "-f" << "bestaudio";
-    arguments << "--extract-audio";
-    arguments << "--audio-format" << "m4a";
-    arguments << "--output" << QDir(outputDir).filePath("%(title)s.%(ext)s");
+
+    // Handle download type
+    if (options.downloadType == DownloadSettings::Options::Audio) {
+        // Audio download options
+        arguments << "-x"; // Extract audio
+        if (!options.audioFormat.isEmpty()) {
+            arguments << "--audio-format" << options.audioFormat;
+        } else {
+            arguments << "--audio-format" << "m4a"; // Default audio format
+        }
+    } else if (options.downloadType == DownloadSettings::Options::Video) {
+        // Video download options
+        if (!options.format.isEmpty()) {
+            arguments << "-f" << options.format;
+        } else {
+            arguments << "-f" << "bestvideo+bestaudio"; // Default video format
+        }
+    }
+
+    // Handle playlist range options
+    if (options.downloadRangeFromPlaylist) {
+        QString playlistItems;
+        if (options.downloadIndexFromPlaylistStart > 0 && options.downloadIndexFromPlaylistEnd > 0) {
+            playlistItems = QString("%1:%2").arg(options.downloadIndexFromPlaylistStart).arg(options.downloadIndexFromPlaylistEnd);
+        } else if (options.downloadIndexFromPlaylistStart > 0) {
+            playlistItems = QString("%1:").arg(options.downloadIndexFromPlaylistStart);
+        } else if (options.downloadIndexFromPlaylistEnd > 0) {
+            playlistItems = QString(":%1").arg(options.downloadIndexFromPlaylistEnd);
+        }
+
+        if (!playlistItems.isEmpty()) {
+            arguments << "-I" << playlistItems;
+        }
+    }
+
+    // Handle download limit
+    if (options.limitNumVideosDownloadedFromPlaylist && options.downloadFromPlaylistLimit > 0) {
+        arguments << "--max-downloads" << QString::number(options.downloadFromPlaylistLimit);
+    }
+
+    // Handle playlist options
+    if (options.downloadLinkedPlaylist) {
+        arguments << "--yes-playlist";
+    } else {
+        arguments << "--no-playlist";
+    }
+
+    if (options.downloadPlaylistRandomOrder) {
+        arguments << "--playlist-random";
+    }
+
+    // Handle filename options
+    if (options.normalizeFilenames) {
+        arguments << "--restrict-filenames";
+    }
+
+    if (options.windowsFilenames) {
+        arguments << "--windows-filenames";
+    }
+
+    if (options.limitFilenameLength && options.maxFilenameLength > 0) {
+        arguments << "--trim-filenames" << QString::number(options.maxFilenameLength);
+    }
+
+    // Handle thumbnail option
+    if (options.downloadThumbnail) {
+        arguments << "--write-thumbnail";
+    }
+
+    // Add output template
+    arguments << "-o" << QDir(outputDir).filePath("%(title)s.%(ext)s");
+
+    // Add the URL
     arguments << url;
 
+    // Rest of the function remains the same
     process = new QProcess(this);
 
     connect(process, &QProcess::readyReadStandardOutput, this, &Downloader::onProcessOutput);
@@ -63,6 +133,8 @@ void Downloader::download(const QString &url)
         ytDlpPath = QFile::exists(ytDlpLocalPath) ? ytDlpLocalPath : "yt-dlp";
     }
 
+    qDebug() << "yt-dlp arguments:" << arguments;
+
     process->start(ytDlpPath, arguments);
 
     if (!process->waitForStarted()) {
@@ -72,6 +144,7 @@ void Downloader::download(const QString &url)
         return;
     }
 }
+
 
 void Downloader::onProcessOutput()
 {

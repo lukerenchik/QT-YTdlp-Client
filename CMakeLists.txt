@@ -13,11 +13,14 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt5 COMPONENTS Core Gui Network REQUIRED)
 
+set(CMAKE_AUTOUIC ON)
+
 set(PROJECT_SOURCES
         main.cpp
         yt_dlp.cpp
         yt_dlp.h
         yt_dlp.ui
+        DownloadSettings.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -42,6 +45,9 @@ else()
             Downloader.h
             Downloader.cpp
             GifManager.h GifManager.cpp
+            DownloadSettings.h DownloadSettings.cpp
+
+
 
         )
     endif()

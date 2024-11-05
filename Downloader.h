@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QProcess>
+#include "DownloadSettings.h"
 
 class Downloader : public QObject
 {
@@ -13,7 +14,7 @@ public:
     ~Downloader();
 
     void setOutputDir(const QString &dir);
-    void download(const QString &url);
+    void download(const QString &url, const DownloadSettings::Options &options);
     void setYtDlpExecutablePath(const QString &path);
 
 signals:

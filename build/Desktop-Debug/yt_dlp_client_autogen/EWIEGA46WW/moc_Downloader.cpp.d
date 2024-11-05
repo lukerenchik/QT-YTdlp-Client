@@ -14,6 +14,7 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qconfig.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qcontainerfwd.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qcontainertools_impl.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qdatastream.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qflags.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qgenericatomic.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qglobal.h \
@@ -22,8 +23,10 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qhashfunctions.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qiodevice.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qiterator.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qline.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qlist.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qlogging.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qmargins.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qmetatype.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qnamespace.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qnumeric.h \
@@ -32,12 +35,17 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qobjectdefs.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qobjectdefs_impl.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qpair.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qpoint.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qprocess.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qprocessordetection.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qrect.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qrefcount.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qregexp.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qscopedpointer.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qshareddata.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qsharedpointer.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qsharedpointer_impl.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qsize.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qstring.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qstringalgorithms.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qstringlist.h \
@@ -51,6 +59,34 @@
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qvarlengtharray.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qvector.h \
   /home/luke/Qt/5.15.17/gcc_64/include/QtCore/qversiontagging.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qbrush.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qcolor.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qcursor.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qfont.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qfontinfo.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qfontmetrics.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qimage.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qkeysequence.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qmatrix.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qpaintdevice.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qpalette.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qpixelformat.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qpixmap.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qpolygon.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qregion.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qrgb.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qrgba64.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtgui-config.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtguiglobal.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qtransform.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtGui/qwindowdefs.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/QDialog \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qdialog.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qsizepolicy.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qtwidgets-config.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+  /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets/qwidget.h \
+  /home/luke/yt_dlp_client/DownloadSettings.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \

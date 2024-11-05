@@ -89,6 +89,14 @@ build CMakeFiles/yt_dlp_client.dir/GifManager.cpp.o: CXX_COMPILER__yt_dlp_client
   OBJECT_DIR = CMakeFiles/yt_dlp_client.dir
   OBJECT_FILE_DIR = CMakeFiles/yt_dlp_client.dir
 
+build CMakeFiles/yt_dlp_client.dir/DownloadSettings.cpp.o: CXX_COMPILER__yt_dlp_client_unscanned_Debug /home/luke/yt_dlp_client/DownloadSettings.cpp || cmake_object_order_depends_target_yt_dlp_client
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/yt_dlp_client.dir/DownloadSettings.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/luke/yt_dlp_client/build/Desktop-Debug/yt_dlp_client_autogen/include -isystem /home/luke/Qt/5.15.17/gcc_64/include -isystem /home/luke/Qt/5.15.17/gcc_64/include/QtWidgets -isystem /home/luke/Qt/5.15.17/gcc_64/include/QtGui -isystem /home/luke/Qt/5.15.17/gcc_64/include/QtCore -isystem /home/luke/Qt/5.15.17/gcc_64/./mkspecs/linux-g++ -isystem /home/luke/Qt/5.15.17/gcc_64/include/QtNetwork
+  OBJECT_DIR = CMakeFiles/yt_dlp_client.dir
+  OBJECT_FILE_DIR = CMakeFiles/yt_dlp_client.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target yt_dlp_client
@@ -97,7 +105,7 @@ build CMakeFiles/yt_dlp_client.dir/GifManager.cpp.o: CXX_COMPILER__yt_dlp_client
 #############################################
 # Link the executable yt_dlp_client
 
-build yt_dlp_client: CXX_EXECUTABLE_LINKER__yt_dlp_client_Debug CMakeFiles/yt_dlp_client.dir/yt_dlp_client_autogen/mocs_compilation.cpp.o CMakeFiles/yt_dlp_client.dir/main.cpp.o CMakeFiles/yt_dlp_client.dir/yt_dlp.cpp.o CMakeFiles/yt_dlp_client.dir/Downloader.cpp.o CMakeFiles/yt_dlp_client.dir/GifManager.cpp.o | /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Widgets.so.5.15.17 /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Gui.so.5.15.17 /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Network.so.5.15.17 /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Core.so.5.15.17 || yt_dlp_client_autogen yt_dlp_client_autogen_timestamp_deps
+build yt_dlp_client: CXX_EXECUTABLE_LINKER__yt_dlp_client_Debug CMakeFiles/yt_dlp_client.dir/yt_dlp_client_autogen/mocs_compilation.cpp.o CMakeFiles/yt_dlp_client.dir/main.cpp.o CMakeFiles/yt_dlp_client.dir/yt_dlp.cpp.o CMakeFiles/yt_dlp_client.dir/Downloader.cpp.o CMakeFiles/yt_dlp_client.dir/GifManager.cpp.o CMakeFiles/yt_dlp_client.dir/DownloadSettings.cpp.o | /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Widgets.so.5.15.17 /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Gui.so.5.15.17 /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Network.so.5.15.17 /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Core.so.5.15.17 || yt_dlp_client_autogen yt_dlp_client_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -Wl,-rpath,/home/luke/Qt/5.15.17/gcc_64/lib:  /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Widgets.so.5.15.17  /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Gui.so.5.15.17  /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Network.so.5.15.17  /home/luke/Qt/5.15.17/gcc_64/lib/libQt5Core.so.5.15.17
   OBJECT_DIR = CMakeFiles/yt_dlp_client.dir
@@ -182,7 +190,7 @@ build yt_dlp_client_autogen_timestamp_deps: phony
 #############################################
 # Utility command for yt_dlp_client_autogen
 
-build yt_dlp_client_autogen: phony CMakeFiles/yt_dlp_client_autogen yt_dlp_client_autogen/include/ui_yt_dlp.h yt_dlp_client_autogen/timestamp yt_dlp_client_autogen/mocs_compilation.cpp yt_dlp_client_autogen_timestamp_deps
+build yt_dlp_client_autogen: phony CMakeFiles/yt_dlp_client_autogen yt_dlp_client_autogen/include/ui_yt_dlp.h yt_dlp_client_autogen/include/ui_DownloadSettings.h yt_dlp_client_autogen/timestamp yt_dlp_client_autogen/mocs_compilation.cpp yt_dlp_client_autogen_timestamp_deps
 
 
 #############################################
@@ -199,7 +207,7 @@ build yt_dlp_client_autogen/timestamp yt_dlp_client_autogen/mocs_compilation.cpp
 #############################################
 # Phony custom command for CMakeFiles/yt_dlp_client_autogen
 
-build CMakeFiles/yt_dlp_client_autogen yt_dlp_client_autogen/include/ui_yt_dlp.h | ${cmake_ninja_workdir}CMakeFiles/yt_dlp_client_autogen ${cmake_ninja_workdir}yt_dlp_client_autogen/include/ui_yt_dlp.h: phony yt_dlp_client_autogen/timestamp || yt_dlp_client_autogen_timestamp_deps
+build CMakeFiles/yt_dlp_client_autogen yt_dlp_client_autogen/include/ui_yt_dlp.h yt_dlp_client_autogen/include/ui_DownloadSettings.h | ${cmake_ninja_workdir}CMakeFiles/yt_dlp_client_autogen ${cmake_ninja_workdir}yt_dlp_client_autogen/include/ui_yt_dlp.h ${cmake_ninja_workdir}yt_dlp_client_autogen/include/ui_DownloadSettings.h: phony yt_dlp_client_autogen/timestamp || yt_dlp_client_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.
